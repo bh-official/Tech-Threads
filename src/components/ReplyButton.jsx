@@ -12,12 +12,6 @@ export default function ReplyButton({ postId, parentId }) {
         Reply
       </button>
 
-      {!showReply && (
-        <button type="button" onClick={() => setShowReply(true)}>
-          Reply
-        </button>
-      )}
-
       {showReply && (
         <div className="reply-form">
           <CommentForm postId={postId} parentId={parentId} />
