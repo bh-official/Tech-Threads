@@ -1,4 +1,6 @@
 import CommentForm from "./CommentForm";
+import DeleteButton from "./DeleteButton";
+import { deleteComment } from "@/actions/commentActions";
 
 export default function CommentList({ comments, postId, parentId = null }) {
   const filtered = comments.filter(
@@ -20,6 +22,11 @@ export default function CommentList({ comments, postId, parentId = null }) {
 
           <p>{comment.comment}</p>
           <p>{new Date(comment.created_at).toLocaleString("en-GB")}</p>
+
+          <form action={deleteComment}>
+            <input type="hidden" name="id" value={comment.id} />
+            <DeleteButton />
+          </form>
 
           <CommentForm postId={postId} parentId={comment.id} />
 

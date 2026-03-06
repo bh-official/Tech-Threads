@@ -15,3 +15,11 @@ export async function addComment(formData) {
   );
   revalidatePath(`/posts/${postId}`);
 }
+
+export async function deleteComment(formData) {
+  const id = formData.get("id");
+
+  await query("DELETE FROM comments WHERE id=$1", [id]);
+
+  revalidatePath("/posts");
+}

@@ -16,7 +16,6 @@ export async function addPost(formData) {
 }
 
 export async function deletePost(formData) {
-  console.log("FormData id:", formData.get("id"));
   const id = formData.get("id");
 
   await query("DELETE FROM post WHERE id=$1", [Number(id)]);
