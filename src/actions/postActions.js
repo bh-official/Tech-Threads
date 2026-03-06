@@ -23,7 +23,8 @@ export async function deletePost(formData) {
   redirect("/posts");
 }
 
-export async function updatePost(id, formData) {
+export async function updatePost(formData) {
+  const id = Number(formData.get("id"));
   const title = formData.get("title");
   const content = formData.get("content");
 
