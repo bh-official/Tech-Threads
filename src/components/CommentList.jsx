@@ -26,6 +26,10 @@ export default function CommentList({ comments, postId, parentId = null }) {
           <p>{comment.comment}</p>
           <p>{new Date(comment.created_at).toLocaleString("en-GB")}</p>
 
+          {comment.parent_comment_id === null && comment.reply_count > 0 && (
+            <p>↳ {comment.reply_count} replies</p>
+          )}
+
           <div className="comment-actions">
             {/* Edit comment */}
             <EditCommentButton comment={comment} />

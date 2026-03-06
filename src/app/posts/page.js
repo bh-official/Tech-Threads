@@ -5,7 +5,14 @@ import DeleteButton from "@/components/DeleteButton";
 import EditPostButton from "@/components/EditPostButton";
 
 export default async function PostsPage() {
-  const result = await query("SELECT * FROM post ORDER BY created_at DESC");
+  const result = await query(
+    `SELECT post.*, COUNT(comments.id) AS comment_count
+     FROM post
+     LEFT JOIN comments
+     ON post.id = comments.post_id
+     GROUP BY post.id
+     ORDER BY post.created_at DESC`,
+  );
 
   const posts = result.rows;
 

@@ -13,7 +13,13 @@ export default async function PostPage({ params }) {
   }
 
   const commentResult = await query(
-    "SELECT * FROM comments WHERE post_id=$1 ORDER BY created_at ASC",
+    `SELECT c.*, COUNT(r.id) AS reply_count
+   FROM comments c
+   LEFT JOIN comments r
+   ON r.parent_comment_id = c.id
+   WHERE c.post_id = $1
+   GROUP BY c.id
+   ORDER BY c.created_at ASC`,
     [id],
   );
 
