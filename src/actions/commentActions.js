@@ -2,7 +2,6 @@
 
 import { query } from "@/utils/db";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
 export async function addComment(formData) {
   const username = formData.get("username");
@@ -22,12 +21,12 @@ export async function deleteComment(formData) {
 
   await query("DELETE FROM comments WHERE id=$1", [id]);
 
-  revalidatePath("/posts");
+  revalidatePath(`/posts/${postId}`);
 }
 
-export async function updateComment(id, formData) {
+export async function updateComment(id, postId, formData) {
   const comment = formData.get("comment");
 
   await query("UPDATE comments SET comment=$1 WHERE id=$2", [comment, id]);
-  redirect(`/posts/${postId}`);
+  revalidatePath(`/posts/${postId}`);
 }

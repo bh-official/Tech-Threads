@@ -34,5 +34,5 @@ export async function updatePost(formData) {
     id,
   ]);
 
-  redirect(`/posts/${id}`);
+  redirect(`/posts/${postId}`);
 }

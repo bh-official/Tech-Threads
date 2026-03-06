@@ -35,10 +35,11 @@ export default function CommentItem({ comment, comments, postId }) {
       )}
 
       <div className="comment-actions">
-        <EditCommentButton comment={comment} />
+        <EditCommentButton comment={comment} postId={postId} />
 
         <form action={deleteComment}>
           <input type="hidden" name="id" value={comment.id} />
+          <input type="hidden" name="postId" value={postId} />
           <DeleteButton />
         </form>
 
