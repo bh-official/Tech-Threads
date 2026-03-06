@@ -19,6 +19,7 @@ export default async function PostsPage() {
           </Link>
 
           <p>{post.content}</p>
+          <p>{new Date(post.created_at).toLocaleString("en-GB")}</p>
 
           <form action={deletePost}>
             <input type="hidden" name="id" value={post.id} />

@@ -19,6 +19,7 @@ export default function CommentList({ comments, postId, parentId = null }) {
           <strong>{comment.username}</strong>
 
           <p>{comment.comment}</p>
+          <p>{new Date(comment.created_at).toLocaleString("en-GB")}</p>
 
           <CommentForm postId={postId} parentId={comment.id} />
 
