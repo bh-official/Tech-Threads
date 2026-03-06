@@ -7,7 +7,11 @@ export default function ReplyButton({ postId, parentId }) {
   const [showReply, setShowReply] = useState(false);
 
   return (
-    <div>
+    <div className="reply-container">
+      <button type="button" onClick={() => setShowReply(!showReply)}>
+        Reply
+      </button>
+
       {!showReply && (
         <button type="button" onClick={() => setShowReply(true)}>
           Reply
@@ -15,7 +19,7 @@ export default function ReplyButton({ postId, parentId }) {
       )}
 
       {showReply && (
-        <div>
+        <div className="reply-form">
           <CommentForm postId={postId} parentId={parentId} />
 
           <button type="button" onClick={() => setShowReply(false)}>
