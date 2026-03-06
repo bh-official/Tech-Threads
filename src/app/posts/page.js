@@ -21,6 +21,7 @@ export default async function PostsPage() {
 
           <p>{post.content}</p>
           <p>{new Date(post.created_at).toLocaleString("en-GB")}</p>
+          <p>💬 {post.comment_count} comments</p>
 
           <EditPostButton id={post.id} />
 
