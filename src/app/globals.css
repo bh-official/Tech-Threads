@@ -24,3 +24,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.comment-actions button {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
