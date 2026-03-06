@@ -14,3 +14,25 @@ export async function addPost(formData) {
 
   redirect("/posts");
 }
+
+export async function deletePost(formData) {
+  console.log("FormData id:", formData.get("id"));
+  const id = formData.get("id");
+
+  await query("DELETE FROM post WHERE id=$1", [Number(id)]);
+
+  redirect("/posts");
+}
+
+export async function updatePost(id, formData) {
+  const title = formData.get("title");
+  const content = formData.get("content");
+
+  await query("UPDATE post SET title=$1, content=$2 WHERE id=$3", [
+    title,
+    content,
+    id,
+  ]);
+
+  redirect(`/posts/${id}`);
+}

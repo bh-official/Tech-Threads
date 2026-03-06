@@ -1,4 +1,7 @@
 import { query } from "@/utils/db";
+import Link from "next/link";
+import { deletePost } from "@/actions/postActions";
+import DeleteButton from "@/components/DeleteButton";
 
 export default async function PostsPage() {
   const result = await query("SELECT * FROM post ORDER BY created_at DESC");
@@ -11,8 +14,16 @@ export default async function PostsPage() {
 
       {posts.map((post) => (
         <div key={post.id}>
-          <h3>{post.title}</h3>
+          <Link href={`/posts/${post.id}`}>
+            <h3>{post.title}</h3>
+          </Link>
+
           <p>{post.content}</p>
+
+          <form action={deletePost}>
+            <input type="hidden" name="id" value={post.id} />
+            <DeleteButton />
+          </form>
         </div>
       ))}
     </div>
