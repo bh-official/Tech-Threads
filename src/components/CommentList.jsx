@@ -7,6 +7,8 @@ export default function CommentList({ comments, postId, parentId = null }) {
     (comment) => comment.parent_comment_id === parentId,
   );
 
+  if (filtered.length === 0) return null;
+
   return (
     <div>
       {filtered.map((comment) => (

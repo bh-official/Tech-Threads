@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <!-- Outer speech bubble -->
+  <rect x="2" y="2" width="36" height="28" rx="8" fill="url(#grad)" />
+  <!-- Tail of speech bubble -->
+  <path d="M10 30 L6 38 L18 30 Z" fill="url(#grad)" />
+  <!-- Code brackets </> in white -->
+  <text x="20" y="22" font-family="monospace" font-size="14" font-weight="bold" fill="white" text-anchor="middle">&lt;/&gt;</text>
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6c3bff"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+  </defs>
+</svg>

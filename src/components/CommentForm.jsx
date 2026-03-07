@@ -1,17 +1,37 @@
+"use client";
+
 import { addComment } from "@/actions/commentActions";
 
-export default function CommentForm({ postId, parentId }) {
+export default function CommentForm({ postId, parentId, compact = false }) {
   return (
-    <form action={addComment}>
-      <input name="username" placeholder="Your name" required />
+    <div className={compact ? "reply-form-wrapper" : "comment-form-wrapper"}>
+      <form action={addComment}>
+        <input type="hidden" name="postId" value={postId} />
+        <input type="hidden" name="parentId" value={parentId || ""} />
 
-      <textarea name="comment" placeholder="Write a comment" required />
+        <input
+          type="text"
+          name="username"
+          placeholder="Your name"
+          required
+          maxLength={50}
+        />
 
-      <input type="hidden" name="postId" value={postId} />
+        <textarea
+          name="comment"
+          placeholder={
+            parentId ? "Write a reply..." : "What are your thoughts?"
+          }
+          required
+          rows={compact ? 3 : 4}
+        />
 
-      <input type="hidden" name="parentId" value={parentId || ""} />
-
-      <button type="submit">Comment</button>
-    </form>
+        <div className="form-actions">
+          <button type="submit" className="btn-primary">
+            {parentId ? "Reply" : "Comment"}
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
