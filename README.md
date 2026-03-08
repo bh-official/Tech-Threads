@@ -122,7 +122,7 @@ tech-threads-comment-form/
 ├── package.json
 ├── next.config.mjs
 ├── eslint.config.mjs
-├── .env                                  # environmental variables
+├── .env                                  # Environmental variables
 ├── .gitignore
 ├── README.md                             # Project documentation
 └── SQL.SQL                               # Database creation and insertions
@@ -310,13 +310,6 @@ npm run dev
 DATABASE_URL=postgresql://username:password@host:port/database
 ```
 
-### Building for Production
-
-```bash
-npm run build
-npm start
-```
-
 ### Database Setup
 
 Run the SQL statements from `DATABASE.md` to create tables and optionally seed data.
@@ -325,9 +318,9 @@ Run the SQL statements from `DATABASE.md` to create tables and optionally seed d
 
 ## Reflection
 
-### Requirements Achieved
+### Requirements & Stretch Goals Achieved
 
-| Requirement                      | Status |
+| Requirements & Goals             | Status |
 | -------------------------------- | ------ |
 | Post creation with categories    | ✅     |
 | View all posts with sorting      | ✅     |
