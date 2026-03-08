@@ -44,7 +44,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={geistSans.variable}>
+      <body className={geistSans.className}>
         <nav className="navbar">
           <Link href="/posts" className="navbar-brand">
             {/* TechThreads logo: speech bubble with </> */}
