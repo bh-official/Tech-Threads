@@ -1,11 +1,37 @@
 "use client";
 
 import { addComment } from "@/actions/commentActions";
+import { useState } from "react";
 
 export default function CommentForm({ postId, parentId, compact = false }) {
+  const [error, setError] = useState("");
+
+  function handleSubmit(e) {
+    const formData = new FormData(e.currentTarget);
+    const username = formData.get("username")?.toString().trim() || "";
+    const comment = formData.get("comment")?.toString().trim() || "";
+
+    if (!username) {
+      e.preventDefault();
+      setError("Username is required");
+      return;
+    }
+    if (!comment) {
+      e.preventDefault();
+      setError("Comment is required");
+      return;
+    }
+    setError("");
+  }
+
   return (
     <div className={compact ? "reply-form-wrapper" : "comment-form-wrapper"}>
-      <form action={addComment}>
+      {error && (
+        <div className="form-error" style={{ marginBottom: 8, fontSize: 12 }}>
+          {error}
+        </div>
+      )}
+      <form action={addComment} onSubmit={handleSubmit}>
         <input type="hidden" name="postId" value={postId} />
         <input type="hidden" name="parentId" value={parentId || ""} />
 

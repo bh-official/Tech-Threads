@@ -11,13 +11,13 @@ export async function addComment(formData) {
 
   // Server-side validation
   if (!username || username.trim().length === 0) {
-    throw new Error("Username is required");
+    return { error: "Username is required" };
   }
   if (!comment || comment.trim().length === 0) {
-    throw new Error("Comment is required");
+    return { error: "Comment is required" };
   }
   if (username.trim().length > 50) {
-    throw new Error("Username must be 50 characters or less");
+    return { error: "Username must be 50 characters or less" };
   }
 
   await query(
@@ -57,16 +57,14 @@ export async function updateComment(...args) {
     postId = args[1];
     formData = args[2];
   } else {
-    throw new Error(
-      "updateComment requires either (formData) or (id, postId, formData)",
-    );
+    return { error: "Invalid arguments" };
   }
 
   const comment = formData.get("comment");
 
   // Server-side validation
   if (!comment || comment.trim().length === 0) {
-    throw new Error("Comment is required");
+    return { error: "Comment is required" };
   }
 
   await query("UPDATE comments SET comment=$1 WHERE id=$2", [

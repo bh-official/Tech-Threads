@@ -496,6 +496,15 @@ a:hover {
   margin-top: 8px;
 }
 
+.form-error {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 14px;
+  border: 1px solid #fecaca;
+}
+
 .btn-primary {
   padding: 6px 16px;
   background: var(--gradient);

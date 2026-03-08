@@ -10,13 +10,13 @@ export async function addPost(formData) {
 
   // Server-side validation
   if (!title || title.trim().length === 0) {
-    throw new Error("Title is required");
+    return { error: "Title is required" };
   }
   if (!content || content.trim().length === 0) {
-    throw new Error("Content is required");
+    return { error: "Content is required" };
   }
   if (title.trim().length > 300) {
-    throw new Error("Title must be 300 characters or less");
+    return { error: "Title must be 300 characters or less" };
   }
 
   await query(
@@ -43,13 +43,13 @@ export async function updatePost(formData) {
 
   // Server-side validation
   if (!title || title.trim().length === 0) {
-    throw new Error("Title is required");
+    return { error: "Title is required" };
   }
   if (!content || content.trim().length === 0) {
-    throw new Error("Content is required");
+    return { error: "Content is required" };
   }
   if (title.trim().length > 300) {
-    throw new Error("Title must be 300 characters or less");
+    return { error: "Title must be 300 characters or less" };
   }
 
   await query("UPDATE post SET title=$1, content=$2, category=$3 WHERE id=$4", [
