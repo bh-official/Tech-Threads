@@ -11,6 +11,31 @@ export const metadata = {
   title: "TechThreads — Where code meets conversation",
   description:
     "A vibrant tech discussion forum. Ask questions, share ideas, and connect with developers.",
+  keywords: [
+    "tech",
+    "forum",
+    "discussion",
+    "programming",
+    "coding",
+    "developer",
+  ],
+  authors: [{ name: "TechThreads" }],
+  openGraph: {
+    title: "TechThreads — Where code meets conversation",
+    description:
+      "A vibrant tech discussion forum. Ask questions, share ideas, and connect with developers.",
+    url: "https://techthreads.app",
+    siteName: "TechThreads",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TechThreads — Where code meets conversation",
+    description:
+      "A vibrant tech discussion forum. Ask questions, share ideas, and connect with developers.",
+    creator: "@techthreads",
+  },
   icons: {
     icon: "/favicon.svg",
   },
