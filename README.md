@@ -1,4 +1,4 @@
-# [![TechThreads Logo](public/logo.svg)] TechThreads — Where Code Meets Conversation
+# ![TechThreads Logo](public/logo.svg)TechThreads — Where Code Meets Conversation
 
 A modern, full-stack discussion forum built with Next.js for developers to share ideas, ask questions, and engage in meaningful technical conversations.
 
