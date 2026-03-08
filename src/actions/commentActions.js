@@ -9,9 +9,20 @@ export async function addComment(formData) {
   const postId = formData.get("postId");
   const parentId = formData.get("parentId");
 
+  // Server-side validation
+  if (!username || username.trim().length === 0) {
+    throw new Error("Username is required");
+  }
+  if (!comment || comment.trim().length === 0) {
+    throw new Error("Comment is required");
+  }
+  if (username.trim().length > 50) {
+    throw new Error("Username must be 50 characters or less");
+  }
+
   await query(
     "INSERT INTO comments (post_id, parent_comment_id, username, comment) VALUES ($1, $2, $3, $4)",
-    [postId, parentId || null, username, comment],
+    [postId, parentId || null, username.trim(), comment.trim()],
   );
 
   revalidatePath(`/posts/${postId}`);
@@ -53,7 +64,15 @@ export async function updateComment(...args) {
 
   const comment = formData.get("comment");
 
-  await query("UPDATE comments SET comment=$1 WHERE id=$2", [comment, id]);
+  // Server-side validation
+  if (!comment || comment.trim().length === 0) {
+    throw new Error("Comment is required");
+  }
+
+  await query("UPDATE comments SET comment=$1 WHERE id=$2", [
+    comment.trim(),
+    id,
+  ]);
 
   revalidatePath(`/posts/${postId}`);
 
