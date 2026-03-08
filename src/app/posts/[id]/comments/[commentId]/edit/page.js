@@ -28,7 +28,7 @@ export default async function EditCommentPage({ params }) {
       <div className="form-card">
         <h1>Edit Comment</h1>
 
-        {/* Use hidden fields to pass IDs to the action */}
+        {/* hidden fields to pass IDs to the action */}
         <form action={updateComment}>
           <input type="hidden" name="id" value={commentId} />
           <input type="hidden" name="postId" value={id} />
