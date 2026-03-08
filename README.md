@@ -25,7 +25,7 @@ A modern, full-stack discussion forum built with Next.js for developers to share
 10. [Major Changes \& Polish](#major-changes--polish)
 11. [Setup \& Execution](#setup--execution)
 12. [Reflection](#reflection)
-13. [Requirements Achieved](#requirements-achieved)
+13. [Requirements Achieved](#requirements--stretch-goals-achieved)
 14. [Challenges](#challenges)
 15. [What Went Well](#what-went-well)
 16. [What I Learned](#what-i-learned)
