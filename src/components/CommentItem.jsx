@@ -145,7 +145,12 @@ export default function CommentItem({ comment, comments, postId }) {
 
           {/* Inline reply form */}
           {showReplyForm && (
-            <CommentForm postId={postId} parentId={comment.id} compact />
+            <CommentForm
+              postId={postId}
+              parentId={comment.id}
+              compact
+              onCancel={() => setShowReplyForm(false)}
+            />
           )}
 
           {/* Nested replies */}

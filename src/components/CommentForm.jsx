@@ -3,7 +3,12 @@
 import { addComment } from "@/actions/commentActions";
 import { useState } from "react";
 
-export default function CommentForm({ postId, parentId, compact = false }) {
+export default function CommentForm({
+  postId,
+  parentId,
+  compact = false,
+  onCancel,
+}) {
   const [error, setError] = useState("");
 
   function handleSubmit(e) {
@@ -22,6 +27,12 @@ export default function CommentForm({ postId, parentId, compact = false }) {
       return;
     }
     setError("");
+  }
+
+  function handleCancel() {
+    if (onCancel) {
+      onCancel();
+    }
   }
 
   return (
@@ -53,6 +64,15 @@ export default function CommentForm({ postId, parentId, compact = false }) {
         />
 
         <div className="form-actions">
+          {parentId && (
+            <button
+              type="button"
+              className="btn-secondary"
+              onClick={handleCancel}
+            >
+              Cancel
+            </button>
+          )}
           <button type="submit" className="btn-primary">
             {parentId ? "Reply" : "Comment"}
           </button>
