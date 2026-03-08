@@ -973,6 +973,28 @@ a:hover {
   padding: 10px;
 }
 
+.reply-form-wrapper textarea,
+.reply-form-wrapper input[type="text"] {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--text-primary);
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.15s;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.reply-form-wrapper textarea:focus,
+.reply-form-wrapper input[type="text"]:focus {
+  border-color: var(--link);
+}
+
 /* Collapsed comment */
 .comment-collapsed .comment-text,
 .comment-collapsed .comment-actions,
