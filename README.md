@@ -121,7 +121,11 @@ tech-threads-comment-form/
 ├── DATABASE.md                           # Database schema documentation
 ├── package.json
 ├── next.config.mjs
-└── eslint.config.mjs
+├── eslint.config.mjs
+├── .env                                  # environmental variables
+├── .gitignore
+├── README.md                             # Project documentation
+└── SQL.SQL                               # Database creation and insertions
 ```
 
 ---
