@@ -1,6 +1,4 @@
-[![TechThreads Logo](public/logo.svg)](https://tech-threads-nu.vercel.app)
-
-# TechThreads — Where Code Meets Conversation
+# [![TechThreads Logo](public/logo.svg)] TechThreads — Where Code Meets Conversation
 
 A modern, full-stack discussion forum built with Next.js for developers to share ideas, ask questions, and engage in meaningful technical conversations.
 
@@ -54,34 +52,33 @@ TechThreads is a vibrant tech discussion forum where developers can:
 
 ### Post Management
 
-- ✅ Create posts with title, content, and category
-- ✅ Edit posts on dedicated route (`/posts/[id]/edit`)
-- ✅ Delete posts with confirmation
-- ✅ View all posts with sorting (newest/oldest)
-- ✅ Category-based filtering display
-- ✅ Share posts via URL copying, Twitter, Reddit, WhatsApp, Email
+✅ Create posts with title, content, and category
+✅ Edit posts on dedicated route (`/posts/[id]/edit`)
+✅ Delete posts with confirmation
+✅ View all posts with sorting (newest/oldest)
+✅ Category-based filtering display
+✅ Share posts via URL copying, Twitter, Reddit, WhatsApp, Email
 
 ### Commenting System
 
-- ✅ Add comments to posts
-- ✅ Reply to comments (nested replies up to unlimited depth)
-- ✅ Edit comments on dedicated route (`/posts/[id]/comments/[commentId]/edit`)
-- ✅ Delete comments with confirmation
-- ✅ Collapse/expand comment threads
+✅ Add comments to posts
+✅ Reply to comments (nested replies up to unlimited depth)
+✅ Edit comments on dedicated route (`/posts/[id]/comments/[commentId]/edit`)
+✅ Delete comments with confirmation
+✅ Collapse/expand comment threads
 
 ### User Experience
 
-- ✅ Responsive design (mobile-friendly)
-- ✅ Dark mode interface
-- ✅ Toast notifications for actions
-- ✅ Form validation (client & server-side)
-- ✅ Loading states with optimistic UI
+✅ Responsive design (mobile-friendly)
+✅ Toast notifications for actions
+✅ Form validation (client & server-side)
+✅ Loading states with optimistic UI
 
 ### SEO & Metadata
 
-- ✅ OpenGraph tags for social sharing
-- ✅ Twitter Card support
-- ✅ Semantic HTML structure
+✅ OpenGraph tags for social sharing
+✅ Twitter Card support
+✅ Semantic HTML structure
 
 ---
 
@@ -89,28 +86,28 @@ TechThreads is a vibrant tech discussion forum where developers can:
 
 ```
 tech-threads-comment-form/
-├── public/                    # Static assets
-│   ├── favicon.svg          # App favicon
-│   ├── logo.svg             # Brand logo
-│   └── ...
+├── public/                               # Static assets
+│   ├── favicon.svg                       # App favicon
+│   ├── logo.svg                          # Brand logo
+│   └── schema-visualiser.png             # DB schema
 ├── src/
-│   ├── actions/             # Server Actions (Next.js 14)
-│   │   ├── postActions.js  # Post CRUD operations
-│   │   └── commentActions.js # Comment CRUD operations
-│   ├── app/                # App Router (Next.js 14)
-│   │   ├── layout.js       # Root layout with navbar
-│   │   ├── page.js         # Home page (redirects to /posts)
-│   │   ├── globals.css     # Global styles
+│   ├── actions/                          # Server Actions (Next.js)
+│   │   ├── postActions.js                # Post CRUD operations
+│   │   └── commentActions.js             # Comment CRUD operations
+│   ├── app/                              # App Router (Next.js)
+│   │   ├── layout.js                     # Root layout with navbar
+│   │   ├── page.js                       # Home page (redirects to /posts)
+│   │   ├── globals.css                   # Global styles
 │   │   └── posts/
-│   │       ├── page.js           # Posts list
-│   │       ├── new/page.js       # Create post
+│   │       ├── page.js                   # Posts list
+│   │       ├── new/page.js               # Create post
 │   │       └── [id]/
-│   │           ├── page.js       # Post detail
-│   │           ├── edit/page.js  # Edit post
+│   │           ├── page.js               # Post detail
+│   │           ├── edit/page.js          # Edit post
 │   │           └── comments/
 │   │               └── [commentId]/
-│   │                   └── edit/page.js # Edit comment
-│   ├── components/        # React components
+│   │                   └── edit/page.js  # Edit comment
+│   ├── components/                       # React components
 │   │   ├── CommentForm.jsx
 │   │   ├── CommentItem.jsx
 │   │   ├── CommentList.jsx
@@ -120,8 +117,8 @@ tech-threads-comment-form/
 │   │   ├── ShareButton.jsx
 │   │   └── ReplyButton.jsx
 │   └── utils/
-│       └── db.js          # Database connection (Neon/PostgreSQL)
-├── DATABASE.md            # Database schema documentation
+│       └── db.js                         # Database connection (PostgreSQL)
+├── DATABASE.md                           # Database schema documentation
 ├── package.json
 ├── next.config.mjs
 └── eslint.config.mjs
@@ -187,22 +184,7 @@ CREATE TABLE comments (
 
 ## Schema Visualizer
 
-```
-┌─────────────────────┐       ┌─────────────────────┐
-│       post          │       │     comments         │
-├─────────────────────┤       ├─────────────────────┤
-│ id (PK)            │◄───────│ post_id (FK)        │
-│ title              │       │ id (PK)             │
-│ content            │       │ parent_comment_id    │────┐
-│ category           │       │ username             │    │
-│ created_at        │       │ comment             │    │
-└─────────────────────┘       │ created_at          │    │
-                             └─────────────────────┘    │
-                                                          │
-                                                          │ (self-referential)
-                                                          ▼
-                                                     (null for top-level)
-```
+![Schema Visualiser](public/schema-visualiser.png)
 
 ---
 
@@ -233,17 +215,6 @@ Instead of REST API routes, TechThreads uses **Next.js Server Actions** for data
 | Create Comment | `src/actions/commentActions.js` | `addComment(formData)`    |
 | Update Comment | `src/actions/commentActions.js` | `updateComment(...)`      |
 | Delete Comment | `src/actions/commentActions.js` | `deleteComment(formData)` |
-
-### Database Queries
-
-All queries use parameterized statements:
-
-```javascript
-await query("INSERT INTO post (title, content) VALUES ($1, $2)", [
-  title,
-  content,
-]);
-```
 
 ---
 
@@ -287,11 +258,10 @@ await query("INSERT INTO post (title, content) VALUES ($1, $2)", [
 
 ### Initial Features
 
-1. ✅ Posts CRUD with PostgreSQL
-2. ✅ Comments with nested replies
-3. ✅ Responsive dark theme UI
-4. ✅ Share functionality (multiple platforms)
-5. ✅ Edit/Delete for posts and comments
+✅ Posts CRUD with PostgreSQL
+✅ Comments with nested replies
+✅ Share functionality (multiple platforms)
+✅ Edit/Delete for posts and comments
 
 ### Enhancements Added
 
