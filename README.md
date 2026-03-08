@@ -1,4 +1,4 @@
-# ![TechThreads Logo](public/logo.svg)TechThreads — Where Code Meets Conversation
+# ![TechThreads Logo](public/logo.svg)TechThreads - Where Code Meets Conversation
 
 A modern, full-stack discussion forum built with Next.js for developers to share ideas, ask questions, and engage in meaningful technical conversations.
 
@@ -6,7 +6,7 @@ A modern, full-stack discussion forum built with Next.js for developers to share
 
 ## 🌐 Live Demo
 
-- **Production**: [https://tech-threads-nu.vercel.app](https://tech-threads-nu.vercel.app)
+- **Deployment**: [https://tech-threads-nu.vercel.app](https://tech-threads-nu.vercel.app)
 - **GitHub Repository**: [https://github.com/bh-official/Tech-Threads](https://github.com/bh-official/Tech-Threads)
 
 ---
@@ -52,33 +52,33 @@ TechThreads is a vibrant tech discussion forum where developers can:
 
 ### Post Management
 
-✅ Create posts with title, content, and category
-✅ Edit posts on dedicated route (`/posts/[id]/edit`)
-✅ Delete posts with confirmation
-✅ View all posts with sorting (newest/oldest)
-✅ Category-based filtering display
-✅ Share posts via URL copying, Twitter, Reddit, WhatsApp, Email
+- ✅ Create posts with title, content, and category
+- ✅ Edit posts on dedicated route (`/posts/[id]/edit`)
+- ✅ Delete posts with confirmation
+- ✅ View all posts with sorting (newest/oldest)
+- ✅ Category-based filtering display
+- ✅ Share posts via URL copying, Twitter, Reddit, WhatsApp, Email
 
 ### Commenting System
 
-✅ Add comments to posts
-✅ Reply to comments (nested replies up to unlimited depth)
-✅ Edit comments on dedicated route (`/posts/[id]/comments/[commentId]/edit`)
-✅ Delete comments with confirmation
-✅ Collapse/expand comment threads
+- ✅ Add comments to posts
+- ✅ Reply to comments (nested replies up to unlimited depth)
+- ✅ Edit comments on dedicated route (`/posts/[id]/comments/[commentId]/edit`)
+- ✅ Delete comments with confirmation
+- ✅ Collapse/expand comment threads
 
 ### User Experience
 
-✅ Responsive design (mobile-friendly)
-✅ Toast notifications for actions
-✅ Form validation (client & server-side)
-✅ Loading states with optimistic UI
+- ✅ Responsive design (mobile-friendly)
+- ✅ Toast notifications for actions
+- ✅ Form validation (client & server-side)
+- ✅ Loading states with optimistic UI
 
 ### SEO & Metadata
 
-✅ OpenGraph tags for social sharing
-✅ Twitter Card support
-✅ Semantic HTML structure
+- ✅ OpenGraph tags for social sharing
+- ✅ Twitter Card support
+- ✅ Semantic HTML structure
 
 ---
 
@@ -258,10 +258,10 @@ Instead of REST API routes, TechThreads uses **Next.js Server Actions** for data
 
 ### Initial Features
 
-✅ Posts CRUD with PostgreSQL
-✅ Comments with nested replies
-✅ Share functionality (multiple platforms)
-✅ Edit/Delete for posts and comments
+- ✅ Posts CRUD with PostgreSQL
+- ✅ Comments with nested replies
+- ✅ Share functionality (multiple platforms)
+- ✅ Edit/Delete for posts and comments
 
 ### Enhancements Added
 
@@ -365,10 +365,6 @@ Run the SQL statements from `DATABASE.md` to create tables and optionally seed d
 - Implemented dynamic routes so each post has its own page displaying the full post and comments.
 
 - Designed a relational database with `posts` and `comments` tables linked through a foreign key.
-
-- Users can add comments on posts and reply through nested comment threads.
-
-- Used Next.js server actions with `revalidatePath` to refresh data after creating, updating, or deleting comments.
 
 - Followed a clean App Router architecture with clear separation of concerns.
 
